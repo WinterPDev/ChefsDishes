@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+
+            </div>
+            <div class="col-sm">
+                <h1>Chefs | <a href="/dishes">Dishes</a></h1>
+            </div>
+            <div class="col-sm">
+                <a type="button" class="btn btn-primary float-right" href="/NewChef">Add A Chef</a>
+            </div>
+        </div>
+    </div>
+
+<h3>Check out our roster of Chefs!</h3>
+<hr>
+
+<table class="table table-striped">
+    <thead>
+            <th>Name</th>
+            <th>Age</th>
+            <th># of Dishes</th>
+    </thead>
+    <tbody>
+        
+            @{
+                foreach(Chef c in ViewBag.allChefs)
+                {
+                    if(@c.CreatedDishes == null)
+                    {
+                    <tr>
+                        <td>@c.FirstName @c.LastName</td>
+                        <td>@c.Age</td>
+                        <td>0</td>
+                    </tr>
+                    }
+                    else
+                    {
+                    <tr>
+                        <td>@c.FirstName @c.LastName</td>
+                        <td>@c.Age</td>
+                        <td>@c.CreatedDishes.Count()</td>
+                    </tr>
+                    }
+                }
+            }
+        
+    </tbody>
+</table>
+
+</div>

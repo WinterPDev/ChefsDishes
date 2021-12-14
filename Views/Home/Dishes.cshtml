@@ -1,0 +1,48 @@
+
+
+<div class="text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+
+            </div>
+            <div class="col-sm">
+                <h1> <a href="/">Chefs</a> | Dishes</h1>
+            </div>
+            <div class="col-sm">
+                <a type="button" class="btn btn-primary float-right" href="/NewDish">Add A Dish</a>
+            </div>
+        </div>
+    </div>
+
+<h3>Yum, take a look at our tasty dishes!</h3>
+<hr>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Chef</th>
+            <th>Tastiness</th>
+            <th>Calories</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @{
+                foreach(Dish d in ViewBag.allDishes)
+                {
+                    <tr>
+                    <td>@d.Name</td>
+                    <td>@d.Creator.FirstName @d.Creator.LastName</td>
+                    <td>@d.Tastiness</td>
+                    <td>@d.Calories</td>
+                    </tr>
+                }
+            }
+            
+        </tr>
+    </tbody>
+</table>
+
+</div>
