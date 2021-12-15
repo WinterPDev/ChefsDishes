@@ -55,8 +55,7 @@ namespace ChefsDishes.Controllers
             {
                 if(_context.Chefs.Any(u => u.FirstName == nChef.FirstName && u.LastName == nChef.LastName))
                 {
-                    // Manually add a ModelState error to the Email field, with provided
-                    // error message
+
                     ModelState.AddModelError("FirstName", "Chef Already Exists!");
                     
                     return View("NewChef");
